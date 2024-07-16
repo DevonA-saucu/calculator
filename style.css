@@ -1,0 +1,38 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc {
+    width: 350px;
+    height: 500px;
+    border: 8px solid black;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    border: 4px solid rgb(14, 151, 197);
+    background-color: rgb(154, 209, 228);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    opacity: .5;
+    flex: 1 1 auto
+}
+
+.row {
+    display: flex;
+    flex: 1 1 auto;
+    background-color: aquamarine;
+}
+
+.button {
+    flex: 1 1 auto;
+    border: 4px solid red;
+}
