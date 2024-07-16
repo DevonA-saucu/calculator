@@ -41,3 +41,11 @@ body {
 .button.operate {
     background-color: rgb(240, 175, 62);
 }
+
+.button:hover {
+    opacity: .8;
+}
+
+.button:active {
+    background-color: white;
+}
