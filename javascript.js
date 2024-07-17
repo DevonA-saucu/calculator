@@ -30,13 +30,26 @@ for (let i = 0; i < buttons.length; i++) {
             mainDisplay.textContent = mainDisplay.textContent.slice(0, mainDisplay.textContent.length - 1);
 
         } else if (buttons[i].classList.contains("operate")) {
-            firstNum = mainDisplay.textContent;
-            operator = buttons[i].textContent;
+            if (operator !== "") {
+                secondNum = mainDisplay.textContent;
+                mainDisplay.textContent = operate(operator, firstNum, secondNum);
+                mainDisplay.textContent = mainDisplay.textContent.slice(0, 13);
+                equated = mainDisplay.textContent;
+                firstNum = equated;
+                operator = buttons[i].textContent;
+            } else {
+                firstNum = mainDisplay.textContent;
+                operator = buttons[i].textContent;
+            }
 
         } else if (buttons[i].textContent === "=") {
             secondNum = mainDisplay.textContent;
             mainDisplay.textContent = operate(operator, firstNum, secondNum);
+            mainDisplay.textContent = mainDisplay.textContent.slice(0, 13);
             equated = mainDisplay.textContent;
+            operator = "";
+        } else if (buttons[i].textContent === "+/-") {
+            mainDisplay.textContent = changeSign(+mainDisplay.textContent);
         }
     });
 }
@@ -57,6 +70,17 @@ function divide(numOne, numTwo) {
     return numOne / numTwo;
 }
 
+function mod(numOne, numTwo) {
+    return numOne % numTwo;
+}
+
+function changeSign(number) {
+    if (number < 0) {
+        return Math.abs(number);
+    }
+    return -number;
+}
+
 function operate(operand, numOne, numTwo) {
     switch(operand) {
         case "+":
@@ -67,6 +91,8 @@ function operate(operand, numOne, numTwo) {
             return multiply(numOne, numTwo);
         case "/":
             return divide(numOne, numTwo);
+        case "%":
+            return mod(numOne, numTwo); 
     }
 }
   
