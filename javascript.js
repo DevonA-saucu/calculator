@@ -67,6 +67,9 @@ function multiply(numOne, numTwo) {
 }
 
 function divide(numOne, numTwo) {
+    if (+numTwo === 0) {   
+        return "Back off pal";
+    }
     return numOne / numTwo;
 }
 
